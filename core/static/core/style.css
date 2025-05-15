@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
-*{
+
+* {
     font-family: Rubik !important;
 }
 
-body{
-    background-image: url(../images/background.jpg);
+body {
+    background-image: url('/static/images/background.jpg');  /* corrected path */
     background-size: cover;
     background-attachment: fixed;
     display: flex;
@@ -15,43 +16,44 @@ body{
     min-height: 100vh;
 }
 
-header{
+header {
     position: sticky;
     top: 0;
     z-index: 999;
 }
 
-.grad-saf-blue{
-    background: #1c92d2 !important;  
+.grad-saf-blue {
+    background: #1c92d2 !important;
     background: linear-gradient(to right, #FF9933, #003366b9) !important;
 }
 
-.grad-saf-blue-left{
-    background: #1c92d2 !important;  
+.grad-saf-blue-left {
+    background: #1c92d2 !important;
     background: linear-gradient(to left, #ff9933bc, #003366) !important;
 }
 
-.bg-saffron{
+.bg-saffron {
     background-color: #FF9933 !important;
 }
 
-.bg-blue{
+.bg-blue {
     background-color: #003366 !important;
 }
 
-.text-saffron{
+.text-saffron {
     color: #FF9933 !important;
 }
 
-.text-blue{
+.text-blue {
     color: #003366 !important;
 }
 
-.border-saffron{
+.border-saffron {
     border: 3px solid #FF9933 !important;
 }
 
-input[type=text],input[type=password]{
+input[type=text],
+input[type=password] {
     width: 100%;
     border-radius: 5px;
     border: 2px solid #FF9933;
@@ -59,7 +61,7 @@ input[type=text],input[type=password]{
     padding: 5px 10px;
 }
 
-select{
+select {
     margin-left: auto !important;
     width: 60%;
     border-radius: 5px;
@@ -68,22 +70,22 @@ select{
     font-weight: lighter;
 }
 
-input:focus{
+input:focus {
     outline: none;
 }
 
-footer{
+footer {
     margin-top: auto;
 }
 
-.zebra-list li{
+.zebra-list li {
     padding-left: 1rem !important;
     padding-right: .5rem !important;
     margin-right: .5rem !important;
     border: none;
 }
 
-.zebra-list li:nth-child(even){
+.zebra-list li:nth-child(even) {
     background: #ffffff24 !important;
 }
 
@@ -98,7 +100,7 @@ footer{
 }
 
 #notification-panel::-webkit-scrollbar-thumb {
-    background-color: #ffffffb9;  /* semi-transparent white */
+    background-color: #ffffffb9;
     border-radius: 10px;
     transition: 1s;
 }
@@ -107,17 +109,16 @@ footer{
     background-color: #ffffffcc;
 }
 
-#quick-info{
+#quick-info {
     width: 200px;
 }
 
-
-@media (max-width: 992px){
-    #login-section{
+@media (max-width: 992px) {
+    #login-section {
         width: 100%;
     }
 
-    #quick-info{
+    #quick-info {
         width: 100%;
     }
 }
