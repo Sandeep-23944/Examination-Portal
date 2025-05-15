@@ -1,0 +1,552 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Examination Portal - Home</title>
+    <link rel="stylesheet" href="{% static 'core/style.css' %}">
+    <link rel="stylesheet" href="{% static 'core/bootstrap.min.css' %}">
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <style>#news, #rule {
+        padding-top: 110px;  /* Adjust this value based on your navbar height */
+        margin-top: -110px;  /* Pull the section up slightly to align with the page */
+    }
+    </style>
+    
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header class="w-100">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom border-3">
+            <div class="container">
+                <a class="navbar-brand" href="#"><div class="d-flex align-items-center">
+                    <img src="{% static 'images/logo.png' %}" alt="" style="height: 70px;">
+                    <div class="d-none d-md-block">
+                        <h1 class="lead m-0 ms-4 p-0" style="font-size:x-large;">ਗੁਰੂ ਨਾਨਕ ਕਾਲਜ ਬੁਢਲਾਡਾ</h1>
+                        <h1 class="text-uppercase lead m-0 ms-4 p-0" style="font-size:x-large;">guru nanak college budhlada</h1>
+                    </div>
+                    <div class="d-block d-md-none">
+                        <h1 class="text-uppercase lead m-0 ms-4 p-0" style="font-size:x-large;">GNC <br> Budhlada</h1>
+                    </div>
+                </div>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item d-flex justify-content-end">
+                            <a class="nav-link lead text-blue" href="#rule">Rules</a>
+                        </li>
+                        <li class="nav-item d-flex justify-content-end">
+                            <a class="nav-link lead text-blue" href="#news">News</a>
+                        </li>
+                        <li class="nav-item d-flex justify-content-end">
+                            <a class="nav-link lead text-blue" href="{% url 'login' %}">Login</a>
+                        </li>
+                        
+                        <li class="nav-item d-flex justify-content-end">
+                            <a class="nav-link lead text-blue" href="/signup/">Signup</a>
+                        </li>
+                        <li class="nav-item d-flex justify-content-end">
+                            <a class="nav-link text-blue lead" href="{% url 'admit_card' %}">Admit Card</a>
+                        </li>                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Welcome Text -->
+    <div class="container text-center text-light mt-4">
+        <h1 class="display-4 fw-semibold">Welcome to Examination Portal</h1>
+        <p>Upcoming exams will be listed here.</p>
+    </div>
+
+    <!-- Portal Login -->
+    <div class="container d-block d-lg-flex p-0 gap-5">
+        <div class="text-white h-auto rounded-3 shadow-sm p-4 d-flex flex-column flex-md-row align-items-center justify-content-between grad-saf-blue" id="card">
+            <div class="mb-3 mb-md-0 pe-md-5">
+                <h5 class=" fw-semibold mb-2">Welcome to the Examination Portal</h5>
+                <p class="text-white small mb-0" style="max-width: 600px; text-align: justify;">
+                    Login or Sign Up to access official exam schedules, academic results, and important notifications through our secure, centralized portal tailored for students and faculty of Guru Nanak College, Budhlada.
+                </p>
+            </div>
+            <div class="d-flex gap-2 flex-wrap justify-content-center justify-content-md-end">
+                <a href="{% url 'login' %}" class="btn btn-outline-light px-4" style="width: 150px;">Login</a>
+                <a href="/signup/" class="btn btn-warning px-4" style="width: 150px;">Sign Up</a>
+            </div>
+        </div>
+    
+        <!-- Admit Card  -->
+        <div class=" mt-5 mt-lg-0 rounded-3 shadow-sm p-4 d-flex flex-column flex-md-row align-items-center justify-content-between grad-saf-blue" id="admit">
+            <div class="text-white mb-3 mb-md-0 pe-md-5">
+                <h5 class=" fw-semibold mb-2">Pre-Examination Downloads</h5>
+                <p class="text-light small mb-0" style="max-width: 600px; text-align: justify;">
+                    Access and download essential pre-examination downloads required for your examination, such as your Hall Ticket / Admit Card. Please ensure you print this document and bring it with you on the exam day as per the instructions.
+                </p>
+            </div>
+            <div class="d-flex gap-2 flex-wrap justify-content-center justify-content-md-end">
+                <a href="{% url 'download_download_documents' %}" class="btn btn-outline-light px-4" style="width: 150px;">Download Documents</a>
+            </div>
+        </div>
+    </div>
+
+     <!-- Contact Support Modal (Fixed Bottom) -->
+<!-- Centered Fixed Contact Support Popup -->
+<script>
+    // Adjust scroll position when clicking on the navbar links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute('href').substring(1); // Get target ID
+            const targetElement = document.getElementById(targetId);
+
+            // Scroll with a 100px offset to stop just below the navbar
+            window.scrollTo({
+                top: targetElement.offsetTop - 110, // Adjust 80px based on navbar height
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+<style>
+    #contactSupportPopup {
+        position: fixed;
+        top: 20px; /* Adjust this value for spacing from top */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 500px;
+        z-index: 1055;
+        display: none;
+    }
+
+    #contactSupportOverlay {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1050;
+    }
+</style>
+
+
+<!-- Overlay behind popup -->
+<div id="contactSupportOverlay" onclick="closeSupportPopup()"></div>
+
+<!-- Popup box -->
+    <div id="contactSupportPopup">
+        <div class="modal-content grad-saf-blue-left text-white p-3 rounded-3 shadow">
+            <div class="modal-header border-0 p-0 pb-2">
+                <h5 class="modal-title w-100 text-center" style="font-family: 'Lora', serif; font-weight: 700;">Contact Support</h5>
+                <button type="button" class="btn-close btn-close-white" onclick="closeSupportPopup()" aria-label="Close"></button>
+            </div>
+            <div class="modal-body pt-0 pb-2">
+                <p class="mb-1"><strong>Contact:</strong>   Mr. Jashandeep Singh</p>
+                <p class="mb-1"><strong>Phone:</strong>      7087641233</p>
+                <p class="mb-1"><strong>Email:</strong>        jsd48030@gmail.com</p>
+                <p class="mb-0"><strong>Student:</strong>   Guru Nanak College Budhlada</p>
+            </div>
+            <div class="modal-footer border-0 p-0 pt-2">
+                <button type="button" class="btn btn-outline-light w-100" onclick="closeSupportPopup()">Close</button>
+            </div>
+        </div>
+    </div>
+
+<script>
+    function openSupportPopup() {
+        document.getElementById('contactSupportPopup').style.display = 'block';
+        document.getElementById('contactSupportOverlay').style.display = 'block';
+    }
+
+    function closeSupportPopup() {
+        document.getElementById('contactSupportPopup').style.display = 'none';
+        document.getElementById('contactSupportOverlay').style.display = 'none';
+    }
+</script>
+<style>
+    #UpdatePopup {
+        position: fixed;
+        top: 20px; /* Adjust this value for spacing from top */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 500px;
+        z-index: 1055;
+        display: none;
+    }
+
+    #UpdateOverlay {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1050;
+    }
+</style>
+
+
+<!-- Overlay behind popup -->
+<div id="UpdateOverlay" onclick="closePopup4()"></div>
+
+<!-- Popup box -->
+<div id="UpdatePopup">
+    <div class="modal-content grad-saf-blue-left text-white p-3 rounded-3 shadow">
+        <div class="modal-header border-0 p-0 pb-2">
+            <h5 class="modal-title w-100 text-center" style="font-family: 'Lora', serif; font-weight: 700;"><b><u>Updated Examination Policy</u></b></h5>
+            <button type="button" class="btn-close btn-close-white" onclick="closePopup4()" aria-label="Close"></button>
+        </div>
+        <div class="modal-body pt-0 pb-2">
+            <p class="mb-1 text-center">
+                We would like to inform all students that the examination guidelines and rules have been revised. It is essential to review the updated examination policy thoroughly before your upcoming exams to ensure you are fully prepared. The new rules aim to enhance exam security, ensure fairness, and provide clear instructions on conduct during the exams. Please take a moment to familiarize yourself with these changes to avoid any confusion or issues on exam day. You can find the complete set of guidelines on the "Examination Policy" page.
+
+                Stay updated and plan ahead for a smooth exam experience!
+             </p>
+        </div>
+        <div class="modal-footer border-0 p-0 pt-2">
+            <button type="button" class="btn btn-outline-light w-100" onclick="closePopup4()">Close</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function UpdatePopup() {
+        document.getElementById('UpdatePopup').style.display = 'block';
+        document.getElementById('UpdateOverlay').style.display = 'block';
+    }
+
+    function closePopup4() {
+        document.getElementById('UpdatePopup').style.display = 'none';
+        document.getElementById('UpdateOverlay').style.display = 'none';
+    }
+</script>
+
+    <!-- News -->
+        <div class="container mt-5 bg-blue rounded-3 p-4 border" id="news">
+            <h5 class="fw-bold text-white mb-3">Latest Examination News</h5>
+            <div id="examNewsCarousel" class="carousel slide p-3" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#examNewsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#examNewsCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#examNewsCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#examNewsCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                  </div>
+                <div class="carousel-inner text-saffron">
+                    <div class="carousel-item active">
+                        <p class="mb-5">
+                            <strong>Mid-Semester Exams</strong> for all undergraduate programs will commence from <strong>May 2, 2025</strong>. Students are advised to check the schedule section for their respective timetables.
+                        </p>
+                    </div>
+                    <div class="carousel-item">
+                        <p class="mb-5">
+                            <strong>Hall Tickets</strong> will be available for download starting <strong>April 25, 2025</strong> from the student dashboard. Make sure your profile is updated.
+                        </p>
+                    </div>
+                    <div class="carousel-item">
+                        <p class="mb-5">
+                            Practical examinations for science streams will begin from <strong>April 20, 2025</strong>. Contact your department coordinator for lab timings.
+                        </p>
+                    </div>
+                    <div class="carousel-item">
+                        <p class="mb-5">
+                            Examination guidelines and rules have been revised. Please review the <a href="#" class="text-decoration-underline text-white" onclick="UpdatePopup()">updated examination policy</a> before your exams.
+                        </p>
+                    </div>
+                </div>
+                <!-- <button class="carousel-control-prev" type="button" data-bs-target="#examNewsCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#examNewsCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button> -->
+            </div>
+        </div>  
+        <style>
+    #contactSupportPopup {
+        position: fixed;
+        top: 20px; /* Adjust this value for spacing from top */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 500px;
+        z-index: 1055;
+        display: none;
+    }
+
+    #contactSupportOverlay {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1050;
+    }
+</style>
+
+
+<!-- Overlay behind popup -->
+<div id="contactSupportOverlay" onclick="closeSupportPopup()"></div>
+
+<!-- Popup box -->
+<div id="contactSupportPopup">
+    <div class="modal-content grad-saf-blue-left text-white p-3 rounded-3 shadow">
+        <div class="modal-header border-0 p-0 pb-2">
+            <h5 class="modal-title w-100 text-center" style="font-family: 'Lora', serif; font-weight: 700;">Contact Support</h5>
+            <button type="button" class="btn-close btn-close-white" onclick="closeSupportPopup()" aria-label="Close"></button>
+        </div>
+        <div class="modal-body pt-0 pb-2">
+            <p class="mb-1"><strong>Contact:</strong>   Mr. Jashandeep Singh</p>
+            <p class="mb-1"><strong>Phone:</strong>      7087641233</p>
+            <p class="mb-1"><strong>Email:</strong>        jsd48030@gmail.com</p>
+            <p class="mb-0"><strong>Student:</strong>   Guru Nanak College Budhlada</p>
+        </div>
+        <div class="modal-footer border-0 p-0 pt-2">
+            <button type="button" class="btn btn-outline-light w-100" onclick="closeSupportPopup()">Close</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openSupportPopup() {
+        document.getElementById('contactSupportPopup').style.display = 'block';
+        document.getElementById('contactSupportOverlay').style.display = 'block';
+    }
+
+    function closeSupportPopup() {
+        document.getElementById('contactSupportPopup').style.display = 'none';
+        document.getElementById('contactSupportOverlay').style.display = 'none';
+    }
+</script>
+<style>
+    #contactPopup {
+        position: fixed;
+        top: 20px; /* Adjust this value for spacing from top */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 500px;
+        z-index: 1055;
+        display: none;
+    }
+
+    #contactOverlay {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1050;
+    }
+</style>
+
+
+<!-- Overlay behind popup -->
+<div id="contactOverlay" onclick="closePopup()"></div>
+
+<!-- Popup box -->
+<div id="contactPopup">
+    <div class="modal-content grad-saf-blue-left text-white p-3 rounded-3 shadow">
+        <div class="modal-header border-0 p-0 pb-2">
+            <h5 class="modal-title w-100 text-center" style="font-family: 'Lora', serif; font-weight: 700;">Upcoming Exam Details</h5>
+            <button type="button" class="btn-close btn-close-white" onclick="closePopup()" aria-label="Close"></button>
+        </div>
+        <div class="modal-body pt-0 pb-2">
+            <p class="mb-1 text-center" >Your upcoming exams will be listed here as soon as the schedule is released. Please check back soon!</p>
+        </div>
+        <div class="modal-footer border-0 p-0 pt-2">
+            <button type="button" class="btn btn-outline-light w-100" onclick="closePopup()">Close</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openPopup() {
+        document.getElementById('contactPopup').style.display = 'block';
+        document.getElementById('contactOverlay').style.display = 'block';
+    }
+
+    function closePopup() {
+        document.getElementById('contactPopup').style.display = 'none';
+        document.getElementById('contactOverlay').style.display = 'none';
+    }
+</script>
+<style>
+    #PrivacyPopup {
+        position: fixed;
+        top: 20px; /* Adjust this value for spacing from top */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 500px;
+        z-index: 1055;
+        display: none;
+    }
+
+    #PrivacyOverlay {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1050;
+    }
+</style>
+
+
+<!-- Overlay behind popup -->
+<div id="PrivacyOverlay" onclick="closePopup0()"></div>
+
+<!-- Popup box -->
+<div id="PrivacyPopup">
+    <div class="modal-content grad-saf-blue-left text-white p-3 rounded-3 shadow">
+        <div class="modal-header border-0 p-0 pb-2">
+            <h5 class="modal-title w-100 text-center" style="font-family: 'Lora', serif; font-weight: 700;"><b><u>Privacy Policy</u></b></h5>
+            <button type="button" class="btn-close btn-close-white" onclick="closePopup0()" aria-label="Close"></button>
+        </div>
+        <div class="modal-body pt-0 pb-2">
+            <p class="mb-1 text-center">
+
+                This website is developed by <b>Mr. Jashandeep Singh</b>, a student of <i>Guru Nanak College, Budhlada</i>. All content, design, and source code used in this platform are the intellectual property of the developer and are protected under copyright law. The website is intended solely for academic use, helping students access their exam schedules, results, admit cards, and other educational services.
+                
+                We respect your privacy. No personal data is collected, stored, or shared beyond what is necessary for academic functionality. Information shown on this site is either publicly available or officially provided by the institution. No data is sold or transferred to third parties under any circumstances.
+                
+                By accessing this website, you agree to comply with these terms. Unauthorized copying or misuse of content is strictly prohibited and may lead to legal consequences.
+                
+                <br><b>© Jashandeep Singh</b>. All rights reserved.</p>
+        </div>
+        <div class="modal-footer border-0 p-0 pt-2">
+            <button type="button" class="btn btn-outline-light w-100" onclick="closePopup0()">Close</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function PrivacyPopup() {
+        document.getElementById('PrivacyPopup').style.display = 'block';
+        document.getElementById('PrivacyOverlay').style.display = 'block';
+    }
+
+    function closePopup0() {
+        document.getElementById('PrivacyPopup').style.display = 'none';
+        document.getElementById('PrivacyOverlay').style.display = 'none';
+    }
+</script>
+
+<style>
+    #TermsPopup {
+        position: fixed;
+        top: 20px; /* Adjust this value for spacing from top */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 500px;
+        z-index: 1055;
+        display: none;
+    }
+
+    #TermsOverlay {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1050;
+    }
+</style>
+<!-- Overlay behind popup -->
+<div id="TermsOverlay" onclick="closePopup1()"></div>
+
+<!-- Popup box -->
+<div id="TermsPopup">
+    <div class="modal-content grad-saf-blue-left text-white p-3 rounded-3 shadow">
+        <div class="modal-header border-0 p-0 pb-2">
+            <h5 class="modal-title w-100 text-center" style="font-family: 'Lora', serif; font-weight: 700;"><b><u>Terms of Use</u></b></h5>
+            <button type="button" class="btn-close btn-close-white" onclick="closePopup1()" aria-label="Close"></button>
+        </div>
+        <div class="modal-body pt-0 pb-2">
+            <p class="mb-1 text-center">
+
+                By using this website, you agree to abide by the rules and guidelines set forth by the developer and Guru Nanak College, Budhlada. The platform is provided for educational purposes only, and all services accessed through this site are meant to assist students in managing their academic responsibilities. Any unauthorized use, manipulation of data, or attempt to breach the system's security is strictly prohibited and may result in legal action. The developer reserves the right to update or modify these terms at any time without prior notice. Continued use of the website signifies your acceptance of the latest version of these terms.
+                
+             </p>
+        </div>
+        <div class="modal-footer border-0 p-0 pt-2">
+            <button type="button" class="btn btn-outline-light w-100" onclick="closePopup1()">Close</button>
+        </div>
+    </div>
+</div>
+<script>
+    function TermsPopup() {
+        document.getElementById('TermsPopup').style.display = 'block';
+        document.getElementById('TermsOverlay').style.display = 'block';
+    }
+
+    function closePopup1() {
+        document.getElementById('TermsPopup').style.display = 'none';
+        document.getElementById('TermsOverlay').style.display = 'none';
+    }
+</script>      
+
+    <!-- Rules -->
+    <div class="container bg-blue text-white rounded-3 my-5 p-4 shadow border" id="rule">
+        <h5 class="fw-semibold">Rules</h5>
+        <ul>
+            <li>
+                <h5 class="fw-medium">Access & Security</h5>
+                <p class="small text-saffron" style="text-align: justify;">Only use your official college credentials to access the portal. Keep your login information private and secure. Sharing accounts or logging in on behalf of someone else is strictly prohibited.</p>
+            </li>
+            <li>
+                <h5 class="fw-medium">Fair Exam Conduct</h5>
+                <p class="small text-saffron" style="text-align: justify;">All exams must be taken honestly and independently. Using unauthorized resources (notes, other websites, devices, or help from others) is not allowed. If required, keep your camera and microphone on for monitoring purposes.</p>
+            </li>
+            <li>
+                <h5 class="fw-medium">Respectful Communication</h5>
+                <p class="small text-saffron" style="text-align: justify;">Always communicate respectfully with faculty, staff, and fellow students. Inappropriate language, harassment, or disruptive behavior in any form will not be tolerated on the platform.</p>
+            </li>
+            <li>
+                <h5 class="fw-medium">Timely Submissions</h5>
+                <p class="small text-saffron" style="text-align: justify;">Submit all assignments, quizzes, and exams within the given deadlines. Late submissions may result in penalties unless prior approval has been granted for valid reasons.</p>
+            </li>
+            <li>
+                <h5 class="fw-medium">Use of Authorized Devices</h5>
+                <p class="small text-saffron" style="text-align: justify;">Only use devices that have been approved or are compliant with college guidelines. Avoid using multiple devices during assessments unless explicitly allowed.</p>
+            </li>
+            <li>
+                <h5 class="fw-medium">Academic Integrity</h5>
+                <p class="small text-saffron" style="text-align: justify;">Plagiarism, impersonation, or any form of cheating is a serious offense. Ensure all submitted work is your own and cite sources where applicable.</p>
+            </li>
+            <li>
+                <h5 class="fw-medium">Technical Preparedness</h5>
+                <p class="small text-saffron" style="text-align: justify;">Ensure your device is fully charged and your internet connection is stable before beginning any online session or assessment. Keep backup options ready if possible.</p>
+            </li>            
+        </ul>
+    </div>
+    <footer class="bg-white text-dark py-4 w-100">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <p class="mb-0">
+                        Copyright &copy; 2025 Developed by Jashandeep Singh
+                    </p>
+                    <p class="small mb-0">
+                     All rights reserved.
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-dark text-decoration-none me-3"onclick="PrivacyPopup()">Privacy Policy</a>
+                    <a href="#" class="text-dark text-decoration-none me-3"onclick="TermsPopup()">Terms of Use</a>
+                    <a href="#" class="text-dark text-decoration-none" onclick="openSupportPopup()">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer> 
+</body>
+</html>
