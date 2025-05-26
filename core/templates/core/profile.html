@@ -1,0 +1,12 @@
+<!-- core/templates/core/profile.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+</head>
+<body>
+    <h1>Welcome, {{ profile.user.username }}</h1>
+    <p>User Type: {{ profile.user_type }}</p>
+    <p>Approval Status: {{ profile.is_approved }}</p>
+</body>
+</html>
